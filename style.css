@@ -1,27 +1,41 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    background-color: #4679c5;
     text-align: center;
 }
 
 #quiz-container {
-    background: white;
+    background: rgb(101, 26, 231);
     width: 400px;
     margin: 50px auto;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 button {
     display: block;
     width: 100%;
     margin: 10px 0;
-    padding: 10px;
+    padding: 20px;
     cursor: pointer;
+
+    /* NIEUW */
+    border-radius: 999px;
+    background-color: transparent;
+    border: 2px solid rgb(101, 219, 255);
+    color: rgb(0, 0, 0);
+
+    /* animatie */
+    transition: all 0.5s ease;
 }
 
 button:hover {
-    background-color: #ddd;
+    background-color: rgba(190, 72, 226, 0.2);
+    transform: scale(1.05); /* lichte vergroting */
+}
+
+button:active {
+    transform: scale(0.95); /* klik-effect */
 }
 
 #feedback {

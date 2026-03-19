@@ -28,34 +28,52 @@ function toonVraag() {
 
     let vraagElement = document.getElementById("vraag");
     let antwoordenDiv = document.getElementById("antwoorden");
+    let feedback = document.getElementById("feedback");
 
     // TODO: vraag tonen
+    vraagElement.textContent = vragen[huidigeVraag].vraag;
+    
+
     // TODO: antwoorden genereren (buttons!)
+    antwoordenDiv.innerHTML = ""; // oude antwoorden verwijderen
+    feedback.textContent = ""; // oude feedback verwijderen
+    console.log(vragen[huidigeVraag].antwoorden);
+    feedback.textContent = ""; // oude feedback verwijderen
+    vragen[huidigeVraag].antwoorden.forEach((antwoord, index) => {
+        let button = document.createElement("button");
+        button.textContent = antwoord;
+        button.onclick = function () {
+            controleerAntwoord(index);
+        };
+        antwoordenDiv.appendChild(button);
+    }
+        );
+
+
+
 
 }
 
 
 // ===== ANTWOORD CONTROLEREN =====
 function controleerAntwoord(index) {
-
     let feedback = document.getElementById("feedback");
 
     // TODO: controleer of antwoord juist is
+    if (index === vragen[huidigeVraag].correct) {
+
     // TODO: feedback tonen
+        feedback.textContent = "Correct!";
 
     document.getElementById("volgende").disabled = false;
 }
+else {
+    feedback.textContent = "Helaas, probeer het nog eens!.";
+    }
 
 
 // ===== VOLGENDE VRAAG =====
-document.getElementById("volgende").onclick = function () {
 
-    huidigeVraag++;
 
-    if (huidigeVraag >= vragen.length) {
-        alert("Einde van de quiz!");
-        huidigeVraag = 0;
-    }
-
-    // TODO: nieuwe vraag tonen
+// TODO: nieuwe vraag tonen
 };
